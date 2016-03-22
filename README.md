@@ -1,6 +1,6 @@
 # docker-haveged
 
-Docker Haveged is a container as an entropy gathering service.
+Docker Haveged is a container as an entropy gathering service. Based on alpine linux instead of other bloated distros.
 
 ## Use case
 
@@ -23,12 +23,6 @@ If the number is below `1000` then it is probably depleted.
 To run the container:
 
 ```
-docker run --privileged -d sequenceiq/haveged
+docker run --privileged -d sequenceiq/haveged:1.1
 ```
 
-## Test Entropy
-
-In order to test the quality of entropy you can use rngtest
-```
-docker run --rm --privileged --entrypoint bash sequenceiq/haveged -c 'cat /dev/random | rngtest -c 1000'
-```
