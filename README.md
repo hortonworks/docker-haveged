@@ -23,6 +23,6 @@ If the number is below `1000` then it is probably depleted.
 To run the container:
 
 ```
-docker run --privileged -d sequenceiq/haveged:1.1
+docker run --privileged -d hortonworks/haveged:1.1.0
 ```
 
