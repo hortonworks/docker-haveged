@@ -25,7 +25,8 @@ spec:
       #     # release: {{ .Release.Name }}
       #     # heritage: {{ .Release.Service }}
       containers:
-        - name: haveged
-          image: hortonworks/haveged:1.1.0
+        - name: "{{ .Values.image.name }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
             privileged: true
