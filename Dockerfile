@@ -1,6 +1,6 @@
-FROM alpine:3.6
-MAINTAINER Hortonworks
+FROM alpine
+MAINTAINER webmaster@highskillz.com
 
-RUN apk add --no-cache haveged
+RUN apk add --update --no-cache haveged
 ENTRYPOINT ["haveged"]
 CMD ["-F"]
