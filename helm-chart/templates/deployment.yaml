@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: {{ template "haveged.fullname" . }}
+  namespace: kube-system
+  # labels:
+  #   app: {{ template "haveged.name" . }}
+  #   chart: {{ template "haveged.chart" . }}
+  #   release: {{ .Release.Name }}
+  #   # heritage: {{ .Release.Service }}
+spec:
+  template:
+    metadata:
+      labels:
+        daemonset: {{ template "haveged.name" . }}
+        # app: {{ template "haveged.name" . }}
+        # chart: {{ template "haveged.chart" . }}
+        # release: {{ .Release.Name }}
+        # # heritage: {{ .Release.Service }}
+    spec:
+      # selector:
+      #   matchLabels:
+      #     app: {{ template "haveged.name" . }}
+      #     # chart: {{ template "haveged.chart" . }}
+      #     # release: {{ .Release.Name }}
+      #     # heritage: {{ .Release.Service }}
+      containers:
+        - name: haveged
+          image: hortonworks/haveged:1.1.0
+          securityContext:
+            privileged: true
