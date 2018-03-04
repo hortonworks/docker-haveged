@@ -25,7 +25,7 @@ spec:
       #     # release: {{ .Release.Name }}
       #     # heritage: {{ .Release.Service }}
       containers:
-        - name: "{{ .Values.image.name }}"
+        - name: "{{ template "haveged.name" . }}"
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
