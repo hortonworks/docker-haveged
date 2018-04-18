@@ -7,3 +7,9 @@ To deploy, use
 
 Changelog:
 	1.0.0	2018-03-04	github/joaocc
+
+
+
+helm del --purge haveged --kube-context zzzzz
+helm upgrade --install --debug haveged . --kube-context zzzzz
+

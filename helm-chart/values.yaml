@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ez123/haveged
   tag: 1.9
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 
 # resources: {}

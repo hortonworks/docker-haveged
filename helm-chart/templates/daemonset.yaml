@@ -3,12 +3,15 @@ kind: DaemonSet
 metadata:
   name: {{ template "haveged.fullname" . }}
   namespace: kube-system
-  # labels:
-  #   app: {{ template "haveged.name" . }}
+  labels:
+    app: {{ template "haveged.name" . }}
   #   chart: {{ template "haveged.chart" . }}
   #   release: {{ .Release.Name }}
   #   # heritage: {{ .Release.Service }}
 spec:
+  selector:
+    matchLabels:
+      daemonset: {{ template "haveged.name" . }}
   template:
     metadata:
       labels:
@@ -25,8 +28,8 @@ spec:
       #     # release: {{ .Release.Name }}
       #     # heritage: {{ .Release.Service }}
       containers:
-        - name: "{{ template "haveged.name" . }}"
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        - name: {{ template "haveged.name" . }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
             privileged: true
