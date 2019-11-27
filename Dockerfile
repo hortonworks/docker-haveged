@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.10.3
 MAINTAINER Hortonworks
 
 RUN apk add --no-cache haveged
